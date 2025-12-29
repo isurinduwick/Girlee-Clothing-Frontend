@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShoppingBag, Search, User } from "lucide-react";
 import { Button } from "./ui/button";
 import { Cart } from "./Cart";
+import { SearchModal } from "./SearchModal";
 
 const navLinks = [
 	{ name: "New Arrivals", href: "#new" },
@@ -14,6 +15,7 @@ const navLinks = [
 export const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [isSearchOpen, setIsSearchOpen] = useState(false);
 
 	return (
 		<>
@@ -56,6 +58,7 @@ export const Navbar = () => {
 					{/* Right Icons */}
 					<div className="flex items-center gap-4">
 						<button
+							onClick={() => setIsSearchOpen(true)}
 							className="p-2 hover:text-muted-foreground transition-colors"
 							aria-label="Search"
 						>
@@ -114,6 +117,7 @@ export const Navbar = () => {
 				</AnimatePresence>
 			</header>
 
+			<SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 			<Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 		</>
 	);
