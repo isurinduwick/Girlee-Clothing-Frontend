@@ -61,7 +61,7 @@ export const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						onClick={onClose}
-						className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+						className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
 					/>
 
 					{/* Modal */}
@@ -70,33 +70,8 @@ export const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -100 }}
 						transition={{ type: "spring", damping: 25, stiffness: 300 }}
-						className="fixed top-0 left-0 right-0 z-50 bg-background max-h-[90vh] overflow-y-auto"
+						className="fixed top-0 left-0 right-0 z-[60] bg-background max-h-[90vh] overflow-y-auto"
 					>
-						{/* Decorative snowflakes */}
-						<div className="absolute inset-0 pointer-events-none overflow-hidden">
-							{[...Array(8)].map((_, i) => (
-								<motion.div
-									key={i}
-									className="absolute text-muted-foreground/20"
-									style={{
-										left: `${Math.random() * 100}%`,
-										top: `${Math.random() * 100}%`,
-									}}
-									animate={{
-										rotate: 360,
-										scale: [1, 1.2, 1],
-									}}
-									transition={{
-										duration: 3 + Math.random() * 2,
-										repeat: Infinity,
-										ease: "linear",
-									}}
-								>
-									❄
-								</motion.div>
-							))}
-						</div>
-
 						<div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-12">
 							{/* Close Button */}
 							<button

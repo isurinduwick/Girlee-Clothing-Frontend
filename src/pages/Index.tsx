@@ -5,10 +5,15 @@ import { About } from "@/components/About";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
 
-const Index = () => {
+interface IndexProps {
+  isSearchOpen: boolean;
+  setIsSearchOpen: (value: boolean) => void;
+}
+
+const Index = ({ isSearchOpen, setIsSearchOpen }: IndexProps) => {
   return (
     <main className="min-h-screen">
-      <Navbar />
+      <Navbar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
       <Hero />
       <Collections />
       <About />

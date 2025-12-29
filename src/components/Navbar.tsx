@@ -12,10 +12,14 @@ const navLinks = [
 	{ name: "Contact", href: "#contact" },
 ];
 
-export const Navbar = () => {
+interface NavbarProps {
+	isSearchOpen: boolean;
+	setIsSearchOpen: (value: boolean) => void;
+}
+
+export const Navbar = ({ isSearchOpen, setIsSearchOpen }: NavbarProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isCartOpen, setIsCartOpen] = useState(false);
-	const [isSearchOpen, setIsSearchOpen] = useState(false);
 
 	return (
 		<>
