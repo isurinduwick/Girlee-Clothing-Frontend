@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Girlee Brand Colors - Elegant & Feminine */
+    --background: 40 33% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 30% 97%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Primary - Deep Charcoal */
+    --primary: 30 10% 15%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Secondary - Soft Blush */
+    --secondary: 15 45% 93%;
+    --secondary-foreground: 30 10% 15%;
+
+    /* Muted - Warm Gray */
+    --muted: 30 15% 92%;
+    --muted-foreground: 30 10% 45%;
+
+    /* Accent - Rose Gold */
+    --accent: 15 35% 85%;
+    --accent-foreground: 30 10% 15%;
+
+    /* Gold Highlight */
+    --gold: 38 60% 55%;
+    --gold-foreground: 40 33% 98%;
+
+    /* Rose Pink */
+    --rose: 350 40% 70%;
+    --rose-foreground: 40 33% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 30 10% 15%;
+
+    --radius: 0.25rem;
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Outfit', sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(30 10% 15% / 0.08);
+    --shadow-elegant: 0 10px 40px -10px hsl(30 10% 15% / 0.12);
+    --shadow-hover: 0 20px 50px -15px hsl(30 10% 15% / 0.15);
+
+    /* Gradients */
+    --gradient-cream: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(30 25% 95%) 100%);
+    --gradient-blush: linear-gradient(135deg, hsl(15 45% 93%) 0%, hsl(350 35% 92%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38 60% 55%) 0%, hsl(30 50% 60%) 100%);
+
+    /* Sidebar (unused but required) */
+    --sidebar-background: 40 33% 98%;
+    --sidebar-foreground: 30 10% 15%;
+    --sidebar-primary: 30 10% 15%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 15 45% 93%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 30 20% 88%;
+    --sidebar-ring: 30 10% 15%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 30 12% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 30 12% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 40 20% 95%;
+    --primary-foreground: 30 15% 8%;
+
+    --secondary: 30 12% 18%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 30 12% 18%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 15 25% 25%;
+    --accent-foreground: 40 20% 95%;
+
+    --gold: 38 55% 50%;
+    --gold-foreground: 30 15% 8%;
+
+    --rose: 350 35% 55%;
+    --rose-foreground: 30 15% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 30 12% 20%;
+    --input: 30 12% 20%;
+    --ring: 40 20% 95%;
+
+    --sidebar-background: 30 15% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 40 20% 95%;
+    --sidebar-primary-foreground: 30 15% 8%;
+    --sidebar-accent: 30 12% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 30 12% 20%;
+    --sidebar-ring: 40 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(30 50% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-cream {
+    background: var(--gradient-cream);
+  }
+
+  .bg-gradient-blush {
+    background: var(--gradient-blush);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .image-reveal {
+    @apply overflow-hidden;
+  }
+
+  .image-reveal img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .image-reveal:hover img {
+    transform: scale(1.05);
+  }
+
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-foreground transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32 px-6 md:px-12 lg:px-20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
