@@ -4,6 +4,7 @@ import { Menu, X, ShoppingBag, Search, User } from "lucide-react";
 import { Button } from "./ui/button";
 import { Cart } from "./Cart";
 import { SearchModal } from "./SearchModal";
+import { SubscriptionModal } from "./SubscriptionModal";
 
 const navLinks = [
 	{ name: "New Arrivals", href: "#new" },
@@ -20,6 +21,7 @@ interface NavbarProps {
 export const Navbar = ({ isSearchOpen, setIsSearchOpen }: NavbarProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [isSubscriptionOpen, setIsSubscriptionOpen] = useState(false);
 
 	return (
 		<>
@@ -68,13 +70,18 @@ export const Navbar = ({ isSearchOpen, setIsSearchOpen }: NavbarProps) => {
 						>
 							<Search className="w-5 h-5" />
 						</button>
-						<button
+						<motion.button
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
+							onClick={() => setIsSubscriptionOpen(true)}
 							className="p-2 hover:text-muted-foreground transition-colors hidden md:block"
 							aria-label="Account"
 						>
 							<User className="w-5 h-5" />
-						</button>
-						<button
+						</motion.button>
+						<motion.button
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
 							onClick={() => setIsCartOpen(true)}
 							className="p-2 hover:text-muted-foreground transition-colors relative"
 							aria-label="Shopping bag"
@@ -83,7 +90,7 @@ export const Navbar = ({ isSearchOpen, setIsSearchOpen }: NavbarProps) => {
 							<span className="absolute -top-1 -right-1 w-4 h-4 bg-gold text-gold-foreground text-[10px] flex items-center justify-center rounded-full">
 								0
 							</span>
-						</button>
+						</motion.button>
 					</div>
 				</nav>
 
@@ -123,6 +130,7 @@ export const Navbar = ({ isSearchOpen, setIsSearchOpen }: NavbarProps) => {
 
 			<SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 			<Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+			<SubscriptionModal isOpen={isSubscriptionOpen} onClose={() => setIsSubscriptionOpen(false)} />
 		</>
 	);
 };
