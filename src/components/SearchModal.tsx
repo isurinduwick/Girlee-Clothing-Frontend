@@ -13,37 +13,37 @@ const popularProducts = [
 	{
 		id: 1,
 		name: "Casual Wear Linen S/S Shirt",
-		image: "/products/black-shirt.jpg",
+		image: "src/Assets/girleesrch1.jpg",
 		price: "Rs 3,450.00",
 	},
 	{
 		id: 2,
 		name: "Casual Wear Oxford L/S Shirt",
-		image: "/products/blue-shirt.jpg",
+		image: "src/Assets/search2.jpg",
 		price: "Rs 3,850.00",
 	},
 	{
 		id: 3,
 		name: "Halter maxi dress",
-		image: "/products/yellow-dress.jpg",
+		image: "src/Assets/search3.jpg",
 		price: "Rs 9,250.00",
 	},
 	{
 		id: 4,
 		name: "Sleeveless midi dress with tiered panel",
-		image: "/products/brown-dress.jpg",
+		image: "src/Assets/search4.jpg",
 		price: "Rs 8,950.00",
 	},
 	{
 		id: 5,
 		name: "Basic shirt with three quarter sleeves",
-		image: "/products/white-shirt.jpg",
+		image: "src/Assets/search5.jpg",
 		price: "Rs 4,250.00",
 	},
 	{
 		id: 6,
 		name: "Oversized blouse",
-		image: "/products/brown-blouse.jpg",
+		image: "src/Assets/search6.jpg",
 		price: "Rs 4,650.00",
 	},
 ];

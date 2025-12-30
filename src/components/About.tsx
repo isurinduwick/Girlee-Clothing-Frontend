@@ -1,85 +1,149 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
-const features = [
-  {
-    number: "01",
-    title: "Sustainable Materials",
-    description: "Ethically sourced fabrics that feel as good as they look.",
-  },
-  {
-    number: "02",
-    title: "Timeless Design",
-    description: "Classic silhouettes reimagined for the modern woman.",
-  },
-  {
-    number: "03",
-    title: "Global Shipping",
-    description: "Delivering elegance to doorsteps worldwide.",
-  },
-];
-
 export const About = () => {
   return (
-    <section id="about" className="section-padding">
+    <section id="about" className="section-padding bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Content */}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <p className="text-sm tracking-[0.3em] uppercase text-gold mb-4">
+            Our Story
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-8">
+            Designed and Made
+            <br />
+            <span className="italic text-gold">in Sri Lanka</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
+            Girlee is a women's fashion brand that creates elegant, quality clothing
+            through local craftsmanship. Every piece is designed and produced in Sri Lanka
+            by skilled tailors, designers, and production workers in our community.
+          </p>
+        </motion.div>
+
+        {/* Main Story Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* What We Do - with Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="space-y-6"
           >
-            <p className="text-sm tracking-[0.3em] uppercase text-gold mb-4">
-              Our Story
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6">
-              Redefining
-              <br />
-              <span className="italic">Feminine</span> Fashion
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Born from a passion for elegance and a commitment to quality, Girlee 
-              represents the modern woman who values both style and substance. 
-              Each piece in our collection tells a story of craftsmanship and 
-              attention to detail.
-            </p>
-            <Button variant="elegant" size="lg">
-              Learn More
-            </Button>
+            <div className="aspect-[4/3] bg-secondary/30 rounded-sm overflow-hidden">
+              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                {/* Image: Design studio or clothing designs */}
+                <span className="text-sm tracking-wider">DESIGN STUDIO</span>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-display text-3xl mb-4 font-light">What We Do</h3>
+              <p className="text-muted-foreground leading-relaxed text-base">
+                We design and produce contemporary women's clothing that combines modern
+                style with traditional craftsmanship. From initial sketches to final stitching,
+                our entire production process happens locally in Sri Lanka, ensuring quality
+                control and supporting our community.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Right Features */}
+          {/* Local Production - with Image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="flex gap-6 p-6 rounded-sm bg-card hover:bg-secondary/50 transition-colors duration-300"
-              >
-                <span className="text-5xl font-display text-gold/40 font-light">
-                  {feature.number}
-                </span>
-                <div>
-                  <h3 className="font-display text-xl mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            <div className="aspect-[4/3] bg-secondary/30 rounded-sm overflow-hidden">
+              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                {/* Image: Tailors at work */}
+                <span className="text-sm tracking-wider">LOCAL TAILORS</span>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-display text-3xl mb-4 font-light">Local Production</h3>
+              <p className="text-muted-foreground leading-relaxed text-base">
+                Our team consists of experienced local tailors, pattern makers, and designers
+                who bring years of expertise to every garment. By keeping production in-house,
+                we maintain high standards while providing stable employment opportunities
+                to skilled workers in our region.
+              </p>
+            </div>
           </motion.div>
         </div>
+
+        {/* Community Impact - Full Width Feature */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="bg-card border border-gold/20 rounded-sm overflow-hidden"
+        >
+          <div className="grid lg:grid-cols-5 gap-0">
+            <div className="lg:col-span-2 aspect-[4/5] lg:aspect-auto bg-secondary/30">
+              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                {/* Image: Production facility or team photo */}
+                <span className="text-sm tracking-wider">OUR TEAM</span>
+              </div>
+            </div>
+            <div className="lg:col-span-3 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+              <h3 className="font-display text-3xl md:text-4xl mb-6 font-light">
+                Community Impact
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-base mb-8">
+                Beyond creating beautiful clothing, we are committed to supporting local
+                livelihoods. Our production facility provides fair wages and professional
+                development opportunities to Sri Lankan tailors, designers, and production
+                staff. When you choose Girlee, you support skilled craftspeople and contribute
+                to the growth of Sri Lanka's fashion industry.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="elegant" size="lg">
+                  View Our Collection
+                </Button>
+                <Button variant="outline" size="lg" className="border-gold/50 hover:bg-gold/10">
+                  Our Craftspeople
+                </Button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-16 border-t border-gold/20"
+        >
+          <div className="text-center">
+            <p className="font-display text-4xl md:text-5xl text-gold mb-2">100%</p>
+            <p className="text-sm text-muted-foreground tracking-wide">Local Production</p>
+          </div>
+          <div className="text-center">
+            <p className="font-display text-4xl md:text-5xl text-gold mb-2">50+</p>
+            <p className="text-sm text-muted-foreground tracking-wide">Skilled Workers</p>
+          </div>
+          <div className="text-center">
+            <p className="font-display text-4xl md:text-5xl text-gold mb-2">15+</p>
+            <p className="text-sm text-muted-foreground tracking-wide">Years Experience</p>
+          </div>
+          <div className="text-center">
+            <p className="font-display text-4xl md:text-5xl text-gold mb-2">Sri Lanka</p>
+            <p className="text-sm text-muted-foreground tracking-wide">Made With Pride</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
